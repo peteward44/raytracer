@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+    <Filter Include="SDL Source">
+      <UniqueIdentifier>{a69e3ab1-2993-4375-84c5-1de0c04dad04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SDL Header">
+      <UniqueIdentifier>{0f7c4922-e658-458f-a39c-e2b612d5d5a8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EntryPoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sphere.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sdl\Cursor.cpp">
+      <Filter>SDL Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Sdl\Event.cpp">
+      <Filter>SDL Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Sdl\Init.cpp">
+      <Filter>SDL Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Sdl\Overlay.cpp">
+      <Filter>SDL Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Sdl\Surface.cpp">
+      <Filter>SDL Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Sdl\Timer.cpp">
+      <Filter>SDL Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Sdl\Window.cpp">
+      <Filter>SDL Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Light.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sdl\Color.h">
+      <Filter>SDL Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Sdl\Cursor.h">
+      <Filter>SDL Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Sdl\Event.h">
+      <Filter>SDL Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Sdl\Exception.h">
+      <Filter>SDL Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Sdl\Init.h">
+      <Filter>SDL Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Sdl\Overlay.h">
+      <Filter>SDL Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Sdl\PixelFormat.h">
+      <Filter>SDL Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Sdl\Rect.h">
+      <Filter>SDL Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Sdl\SDLpp.h">
+      <Filter>SDL Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Sdl\Surface.h">
+      <Filter>SDL Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Sdl\Timer.h">
+      <Filter>SDL Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Sdl\Window.h">
+      <Filter>SDL Header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="notes.txt" />
+  </ItemGroup>
+</Project>

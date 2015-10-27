@@ -1,0 +1,12 @@
+Known Bugs:
+
+Todo:
+
+Event Filtering
+Input device snapshotting
+
+
+Possible Bugs:
+
+Surface::ConvertSurface
+	Does the pixeldata need to be copied? I dont know... test.

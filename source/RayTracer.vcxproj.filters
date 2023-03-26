@@ -36,16 +36,10 @@
     <ClCompile Include="Sphere.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Sdl\Cursor.cpp">
-      <Filter>SDL Source</Filter>
-    </ClCompile>
     <ClCompile Include="Sdl\Event.cpp">
       <Filter>SDL Source</Filter>
     </ClCompile>
     <ClCompile Include="Sdl\Init.cpp">
-      <Filter>SDL Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Sdl\Overlay.cpp">
       <Filter>SDL Source</Filter>
     </ClCompile>
     <ClCompile Include="Sdl\Surface.cpp">
@@ -87,9 +81,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Sdl\Color.h">
-      <Filter>SDL Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Sdl\Cursor.h">
       <Filter>SDL Header</Filter>
     </ClInclude>
     <ClInclude Include="Sdl\Event.h">

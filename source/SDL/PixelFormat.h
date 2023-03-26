@@ -20,7 +20,6 @@ namespace SDL
 			: pixelFormat(pixelFormat)
 		{}
 		
-		
 		inline boost::uint8_t GetBitsPerPixel() const
 		{ return pixelFormat->BitsPerPixel; }
 		
@@ -63,12 +62,6 @@ namespace SDL
 		inline boost::uint8_t GetAlphaLoss() const
 		{ return pixelFormat->Aloss; }
 		
-		inline boost::uint32_t GetColorKey() const
-		{ return pixelFormat->colorkey; }
-		
-		inline boost::uint8_t GetAlpha() const
-		{ return pixelFormat->alpha; }
-
 		inline const SDL_Palette* GetPalette() const
 		{ return pixelFormat->palette; }
 		

@@ -4,9 +4,9 @@
 
 using namespace SDL;
 
-
-Init Init::instance; 
-
+InitPtr Init::Create() {
+	return InitPtr(new Init());
+}
 
 Init::Init()
 {

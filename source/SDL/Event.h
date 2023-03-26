@@ -31,25 +31,6 @@ namespace SDL
 	};
 
 
-	class ActiveEvent : public Event
-	{
-	private:
-		bool gain;
-		boost::uint8_t state;
-
-	public:
-		ActiveEvent(SDL_Event* event)
-			: Event(event), gain(event->active.gain ? 1 : 0), state(event->active.state)
-		{}
-
-		inline bool GetGain() const
-		{ return gain; }
-
-		inline boost::uint8_t GetState() const
-		{ return state; }
-	};
-
-
 	class UnknownEvent : public Event
 	{
 	private:
@@ -64,32 +45,27 @@ namespace SDL
 	class KeyboardEvent : public Event
 	{
 	private:
-		boost::uint8_t state, scanCode;
-		boost::uint16_t unicode;
-		SDLKey key;
-		SDLMod modifiers;
+		boost::uint8_t state;
+		SDL_Scancode scanCode;
+		SDL_Keycode key;
+		boost::uint16_t modifiers;
 
 	public:
 		KeyboardEvent(SDL_Event* event) : Event(event),
 			state(event->key.state), scanCode(event->key.keysym.scancode),
-			unicode(event->key.keysym.unicode), key(event->key.keysym.sym),
-			modifiers(event->key.keysym.mod)
+			key(event->key.keysym.sym), modifiers(event->key.keysym.mod)
 		{}
-
 
 		inline boost::uint8_t GetState() const
 		{ return state; }
 
-		inline boost::uint8_t GetScanCode() const
+		inline SDL_Scancode GetScanCode() const
 		{ return scanCode; }
 
-		inline boost::uint16_t GetUnicode() const
-		{ return unicode; }
-
-		inline SDLKey GetKey() const
+		inline SDL_Keycode GetKey() const
 		{ return key; }
 
-		inline SDLMod GetModifiers() const
+		inline boost::uint16_t GetModifiers() const
 		{ return modifiers; }
 	};
 
@@ -262,24 +238,6 @@ namespace SDL
 	public:
 		SystemEvent(SDL_Event* event) : Event(event)
 		{}
-	};
-
-
-	class ResizeEvent : public Event
-	{
-	private:
-		boost::uint8_t width, height;
-
-	public:
-		ResizeEvent(SDL_Event* event) : Event(event),
-			width(event->resize.w), height(event->resize.h)
-		{}
-
-		inline boost::uint8_t GetWidth() const
-		{ return width; }
-
-		inline boost::uint8_t GetHeight() const
-		{ return height; }
 	};
 
 

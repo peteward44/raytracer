@@ -7,15 +7,17 @@
 
 namespace SDL
 {
+	class Init;
+	typedef boost::shared_ptr<Init> InitPtr;
+
 	class Init
 	{
 	private:
-		static Init instance;
-		
 		Init();
 	public:
 		~Init();
 		
+		static InitPtr Create();
 	};
 }
 

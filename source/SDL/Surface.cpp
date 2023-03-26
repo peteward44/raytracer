@@ -64,19 +64,6 @@ void Surface::Unlock() const
 }
 
 
-void Surface::Update(const Rect& rect)
-{
-	assert(lockCount == 0);
-	SDL_UpdateRect(surface, rect.X, rect.Y, rect.Width, rect.Height);
-}
-
-
-void Surface::Update()
-{
-	Update(Rect(0, 0, 0, 0));
-}
-
-
 void Surface::FillRect(const Rect& rect, const Color& color)
 {
 	SDL_Rect sdlRect;
@@ -100,13 +87,6 @@ void Surface::SaveBMP(const std::string& fileName) const
 {
 	if (SDL_SaveBMP(surface, fileName.c_str()) != 0)
 		throw SurfaceException("Could not save BMP");
-}
-
-
-void Surface::Flip()
-{
-	if (SDL_Flip(surface) != 0)
-		throw SurfaceException("Could not flip surface");
 }
 
 
@@ -201,7 +181,7 @@ Rect Surface::GetClippingArea() const
 
 void Surface::SetColorKey(const Color& colour, bool useRLE)
 {
-	if (SDL_SetColorKey(surface, pixelFormat.ColorToUInt32(colour), SDL_SRCCOLORKEY | (useRLE ? SDL_RLEACCEL : 0)) == -1)
+	if (SDL_SetColorKey(surface, useRLE ? SDL_TRUE : SDL_FALSE, pixelFormat.ColorToUInt32(colour)) != 0)
 		throw SurfaceException("Could not set colour key");
 }
 
@@ -243,24 +223,6 @@ SurfacePtr Surface::CreateRGBSurfaceFrom(const boost::uint8_t *pixels, int width
 	if (surface == 0)
 		throw SurfaceException("Surface could not be created");
 	return SurfacePtr(new Surface(surface, true, data));
-}
-
-
-SurfacePtr Surface::ConvertSurfaceToDisplayFormat(const SurfacePtr& surface)
-{
-	SDL_Surface* sdlSurface = SDL_DisplayFormat(const_cast<SDL_Surface*>(surface->surface));
-	if (sdlSurface == 0)
-		throw SurfaceException("Could not convert surface");
-	return SurfacePtr(new Surface(sdlSurface, true));
-}
-
-
-SurfacePtr Surface::ConvertSurfaceToDisplayFormatAlpha(const SurfacePtr& surface)
-{
-	SDL_Surface* sdlSurface = SDL_DisplayFormatAlpha(const_cast<SDL_Surface*>(surface->surface));
-	if (sdlSurface == 0)
-		throw SurfaceException("Could not convert surface");
-	return SurfacePtr(new Surface(sdlSurface, true));
 }
 
 

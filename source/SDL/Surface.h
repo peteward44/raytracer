@@ -20,7 +20,6 @@ namespace SDL
 	class Surface
 	{
 		friend class Window;
-		friend class Overlay;
 
 	private:
 		SDL_Surface* surface;
@@ -108,22 +107,6 @@ namespace SDL
 		/// Unlocks the surface
 		/// </summary>
 		void Unlock() const;
-
-		/// <summary>
-		/// Updates a portion of the screen
-		/// </summary>
-		/// <param name="rect">Rectangle to update</param>
-		void Update(const Rect& rect);
-		
-		/// <summary>
-		/// Updates the entire screen
-		/// </summary>		
-		void Update();
-		
-		/// <summary>
-		/// Flips the buffers on double-buffered surfaces. Equivalent to Update() on single-buffered surfaces.
-		/// </summary>				
-		void Flip();
 
 		/// <summary>
 		/// Puts a pixel on the screen with the specified coordinates. Surface must be locked beforehand.
@@ -234,20 +217,6 @@ namespace SDL
 		/// <returns>Pointer to a surface</returns>
 		static SurfacePtr CreateRGBSurfaceFrom(const boost::uint8_t* pixels, int width, int height,
 			int depth, int pitch, Uint32 rmask, Uint32 gmask, Uint32 bmask, Uint32 amask);
-
-		/// <summary>
-		/// Converts a surface to the display's pixelformat
-		/// </summary>
-		/// <param name="surface">Surface to copy</param>
-		/// <returns>New surface</returns>
-		static SurfacePtr ConvertSurfaceToDisplayFormat(const SurfacePtr& surface);
-		
-		/// <summary>
-		/// Converts a surface to the display's pixelformat including an alpha channel
-		/// </summary>
-		/// <param name="surface">Surface to copy</param>
-		/// <returns>New surface</returns>
-		static SurfacePtr ConvertSurfaceToDisplayFormatAlpha(const SurfacePtr& surface);
 
 		/// <summary>
 		/// Clones a surface

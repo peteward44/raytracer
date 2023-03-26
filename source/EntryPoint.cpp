@@ -1,9 +1,10 @@
 
 #include "SDL/SDLpp.h"
+#include "SDL/Init.h"
 #include "SDL/Window.h"
 #include "SDL/Surface.h"
 
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 
 #include "Scene.h"
 #include "Sphere.h"
@@ -11,10 +12,11 @@
 #include "Triangle.h"
 
 
-#pragma comment(lib, "sdl.lib")
-#pragma comment(lib, "sdlmain.lib")
+#pragma comment(lib, "SDL2main.lib")
+#pragma comment(lib, "SDL2.lib")
 
 using namespace SDL;
+using namespace boost::placeholders;
 
 
 Sphere* sphere1 = NULL;
@@ -49,11 +51,12 @@ void OnQuit(const QuitEvent& event)
 
 int main(int argc, char* argv[])
 {
-	SurfacePtr frameBuffer = Window::SetVideoMode(640, 480, 0, 0);
+	const auto initPtr = SDL::Init::Create();
+	auto window = WindowPtr(new Window("RayTracer", 640, 480));
 
-	Window::Quit.connect(boost::bind(&OnQuit, _1));
+	window->Quit.connect(boost::bind(&OnQuit, _1));
 
-	Scene scene( frameBuffer );
+	Scene scene(window, window->GetSurface());
 
 
 	Plane* plane = new Plane( 0, 1, -0.05f, 250.0f );
@@ -104,12 +107,13 @@ int main(int argc, char* argv[])
 	scene.AddLight( Scene::LightPtr_t( light ) );
 
 	scene.Render();
+	window->UpdateSurface();
 
-	SDL::Window::KeyUp.connect( boost::bind( &OnKeyUp, _1 ) );
+	window->KeyUp.connect( boost::bind( &OnKeyUp, _1 ) );
 
 	while(true)
 	{
-		Window::WaitForEvent();
+		window->WaitForEvent();
 	}
 
 	return 0;

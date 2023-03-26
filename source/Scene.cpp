@@ -5,8 +5,9 @@
 #include "Sphere.h"
 #include "Plane.h"
 #include "SDL/Window.h"
-#include "boost/bind.hpp"
+#include <boost/bind/bind.hpp>
 
+using namespace boost::placeholders;
 
 const int RAYTRACE_RECURSION_LIMIT = 6;
 const float EPSILON = 0.01f;
@@ -34,13 +35,13 @@ inline SDL::Color VectorToColour( const Vector3& vec )
 }
 
 
-Scene::Scene(SDL::SurfacePtr frameBuffer)
-	: frameBuffer(frameBuffer)
+Scene::Scene(SDL::WindowPtr window, SDL::SurfacePtr frameBuffer)
+	: window(window), frameBuffer(frameBuffer)
 {
 	shadowson = specularon = true;
 	GenerateDirectionTable();
 
-	SDL::Window::KeyUp.connect( boost::bind( &Scene::OnKeyUp, this,  _1 ) );
+	window->KeyUp.connect( boost::bind( &Scene::OnKeyUp, this,  _1 ) );
 }
 
 
@@ -132,7 +133,6 @@ void Scene::Render()
 	}
 
 	frameBuffer->Unlock();
-	frameBuffer->Flip();
 }
 
 

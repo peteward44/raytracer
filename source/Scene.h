@@ -29,6 +29,7 @@ private:
 
 	bool shadowson, specularon;
 
+	SDL::WindowPtr window;
 	SDL::SurfacePtr frameBuffer;
 	ObjectContainer_t objects;
 	LightContainer_t lights;
@@ -41,7 +42,7 @@ private:
 	Vector3 CalculateSpecular( const Material& material, const Ray& pray, const Vector3& lightdirection, const SDL::Color& lightColour, const Vector3& incidentNormal, float mod = 1.0f );
 
 public:
-	Scene(SDL::SurfacePtr frameBuffer);
+	Scene(SDL::WindowPtr window, SDL::SurfacePtr frameBuffer);
 
 	void OnKeyUp(const SDL::KeyboardEvent& event);
 	void Render();
